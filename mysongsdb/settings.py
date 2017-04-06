@@ -24,7 +24,7 @@ SECRET_KEY = 'n#@8_%^_5ly1()02lp08%6qyxmwsl2vg57ls-l0--net-d-me^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'dry-temple-48796@herokuapp.com',]
 
 
 # Application definition

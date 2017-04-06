@@ -1,5 +1,4 @@
 function toggleFieldElement(target, buttonId) {
-        window.alert(document.getElementById(buttonId).innerHtml);
         if (document.getElementById(buttonId).innerHtml == 'Choose from list') {
 		document.getElementById(target).style.display = 'none';
         	document.getElementById(buttonId).innerHtml = '+';
