@@ -24,10 +24,13 @@ sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
   background: #FFF;
   color: #000;
   overflow: hidden;
+
   border-width: 2px;
   border-style: solid;
   border-color: #000;
+
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .button:hover, .button:active 
