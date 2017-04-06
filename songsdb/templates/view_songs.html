@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}View Song{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <table id="keywords">
+        <thead>
+            <th></th>
+            <th></th>
+            <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>
+            <th><a href="{% url 'view_songs' %}?order_by=year">Year</a></th>
+            <th><a href="{% url 'view_songs' %}?order_by=author">Author</a></th>
+            <th><a href="{% url 'view_songs' %}?order_by=publisher">Publisher</a></th>
+            <th><a href="{% url 'view_songs' %}?order_by=type">Type</a></th>
+            <th>Document link</th>
+        </thead>
+        <div style="margin-top: 10px; margin-bottom: 10px">
+        <form action="/view_songs" method="post">
+            {% csrf_token %}
+            <label for="{{ form.search_bar.label }}" style="display:inline-block;vertical-align:middle">{{ form.search_bar.label_tag }}</label>
+           <span style="margin-left: 10px; margin-right: 10px;"> {{form.search_bar}}</span>
+            <span style="margin-right: 10px;">{{form.search_field}}</span>
+            <input type="submit" value="OK">
+        </form>
+        </div>
+        {% for item in songs %}
+        <tr>
+            <td><a href="{% url 'edit_song' %}?song_id={{item.id}}">Edit</a></td>
+            <td>
+                <form action="/delete_song" method="post" onsubmit="return confirm('Do you want to delete the song?')")">
+                    {% csrf_token %}
+                    <input type="hidden" value={{item.id}} name="song_id">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+            <td>{{ item.song_name }}</td>
+            <td>{{ item.year }}</td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.publisher }}</td>
+            <td>{{ item.song_type }}</td>
+            <td>{{ item.document_link }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if songs.has_previous %}
+                <a href="?page={{ songs.previous_page_number}}&order_by={{ order_by }}">Previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ songs.number }} of {{ songs.paginator.num_pages }}
+            </span>
+            {% if songs.has_next %}
+                 <a href="?page={{ songs.next_page_number }}&order_by={{ order_by }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock %}

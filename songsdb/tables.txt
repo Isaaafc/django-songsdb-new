@@ -1,0 +1,14 @@
+Songs
+	Name
+	AuthorID
+	PublisherID
+	Document
+	TypeID
+	Year
+Authors
+	Name
+Publishers
+	Name
+Types
+	Desc
+
