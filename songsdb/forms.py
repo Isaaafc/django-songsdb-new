@@ -10,7 +10,7 @@ class AddForm(forms.Form):
     publisher = forms.CharField(label='Publisher', max_length=50)
     publisher_choice = forms.ModelChoiceField(label='Existing Publishers', queryset=Publisher.objects.all(), required=False)
     song_type = forms.CharField(label='Song type', max_length=50)
-    type_choice=forms.ModelChoiceField(label='Existting Types', queryset=Type.objects.all(), required=False)
+    type_choice=forms.ModelChoiceField(label='Existing Types', queryset=Type.objects.all(), required=False)
 
 class SearchForm(forms.Form):
     search_bar = forms.CharField(label='Enter keyword', max_length=200)

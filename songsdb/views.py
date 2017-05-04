@@ -111,9 +111,9 @@ def edit_song(request):
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
             
             if type_choice is not None:
-                new_type, created = Type.objects.get_or_create(desc=song_type)
-            else:
                 new_type, created = Type.objects.get_or_create(desc=type_choice)
+            else:
+                new_type, created = Type.objects.get_or_create(desc=song_type)
 
             song = Song.objects.get(pk=song_id)
             song.song_name = name
