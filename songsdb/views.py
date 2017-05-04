@@ -96,7 +96,7 @@ def edit_song(request):
             author = form.cleaned_data['author']
             author_choice = form.cleaned_data['author_choice']
             publisher = form.cleaned_data['publisher']
-            publisher = form.cleaned_data['publisher_choice']
+            publisher_choice = form.cleaned_data['publisher_choice']
             song_type = form.cleaned_data['song_type']
             type_choice = form.cleaned_data['type_choice']
             
