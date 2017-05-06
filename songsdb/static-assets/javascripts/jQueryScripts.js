@@ -1,5 +1,5 @@
 $(document).ready(function(){
     $("#toggleAuthor").click(function(){
-        $("#id_author").hide();
+        $("#id_author").toggle();
     });
 });
