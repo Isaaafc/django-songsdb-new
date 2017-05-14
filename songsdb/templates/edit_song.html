@@ -17,6 +17,15 @@
             <td>
             {{field}}
             </td>
+            {% if field.auto_id == 'id_author' or field.auto_id == 'id_author_choice' %}
+                 <td><button type="button" id="toggleAuthor">Add/Existing</button></td>
+            {% endif %}
+            {% if field.auto_id == 'id_publisher' or field.auto_id == 'id_publisher_choice' %}
+                 <td><button type="button" id="togglePublisher">Add/Existing</button></td>
+            {% endif %}
+            {% if field.auto_id == 'id_song_type' or field.auto_id == 'id_type_choice' %}
+                 <td><button type="button" id="toggleType">Add/Existing</button></td>
+            {% endif %}
         </tr>
         {% endfor %}
         </tbody>
