@@ -153,11 +153,11 @@ h1 {
 
 /** custom elements **/
 #field_id_author_choice {
-  visibility: hidden;
+  display: none;
 }
 #field_id_publisher_choice {
-  visibility: hidden;
+  display: none;
 }
 #field_id_type_choice {
-  visibility: hidden;
+  display: none;
 }
