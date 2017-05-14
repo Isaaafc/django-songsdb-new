@@ -150,3 +150,14 @@ h1 {
 #keywords tbody tr td.lalign {
   text-align: left;
 }
+
+/** custom elements **/
+#field_id_author_choice {
+  visibility: hidden;
+}
+#field_id_publisher_choice {
+  visibility: hidden;
+}
+#field_id_type_choice {
+  visibility: hidden;
+}
