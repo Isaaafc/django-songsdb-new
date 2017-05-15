@@ -27,21 +27,21 @@ def add_song(request):
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
             elif author is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author)
-            else
+            else:
                 new_author, created = Author.objects.get_or_create(author_name='--')
 
             if publisher_choice is not None:  
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher_choice)
             elif publisher is not None:
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
-            else
+            else:
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
             
             if type_choice is not None:
                 new_type, created = Type.objects.get_or_create(desc=type_choice)
             elif song_type is not None:
                 new_type, created = Type.objects.get_or_create(desc=song_type)
-            else
+            else:
                 new_type, created = Type.objects.get_or_create(desc='--')
             
             new_song, created = Song.objects.get_or_create(song_name=name,document_link=link,year=song_year,author=new_author,publisher=new_publisher,song_type=new_type)
@@ -124,21 +124,21 @@ def edit_song(request):
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
             elif author is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author)
-            else
+            else:
                 new_author, created = Author.objects.get_or_create(author_name='--')
 
             if publisher_choice is not None:  
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher_choice)
             elif publisher is not None:
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
-            else
+            else:
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
             
             if type_choice is not None:
                 new_type, created = Type.objects.get_or_create(desc=type_choice)
             elif song_type is not None:
                 new_type, created = Type.objects.get_or_create(desc=song_type)
-            else
+            else:
                 new_type, created = Type.objects.get_or_create(desc='--')
 
             song = Song.objects.get(pk=song_id)
