@@ -28,4 +28,6 @@ class Song(models.Model):
     publisher = models.ForeignKey(Publisher)
     song_type = models.ForeignKey(Type)
 
-
+class WTime(models.Model):
+    user_id = models.IntegerField()
+    time_stamp = models.DateTimeField()

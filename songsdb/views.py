@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import AddForm, SearchForm
-from .models import Author, Publisher, Type, Song
+from .models import Author, Publisher, Type, Song, WTime
 # Create your views here.
 
 def index(request):
@@ -159,3 +159,16 @@ def delete_song(request):
         song.delete()
         return HttpResponseRedirect('/view_songs')
     return render(request, '404.html')
+
+def log_time(request):
+    time_stamp = long(request.GET.get('t'))
+    user = int(request.GET.get('uid'))
+    dt_time = datetime.datetime.fromtimestamp(time_stamp)
+    WTime.objects.get_or_create(user_id=user, time_stamp=dt_time)
+    return render(request, '404.html')
+
+def show_log_time(request):
+    user = int(request.GET.get('uid'))
+    query_result = WTime.objects.filter(user_id=user)
+    return render(request, 'show_time.html', {'result' : query_result})
+
