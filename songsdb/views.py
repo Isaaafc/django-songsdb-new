@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import AddForm, SearchForm
 from .models import Author, Publisher, Type, Song, WTime
-import datetime
+from datetime import datetime, timedelta
 # Create your views here.
 
 def index(request):
@@ -163,8 +163,8 @@ def delete_song(request):
 
 def log_time(request):
     time_stamp = long(request.GET.get('t'))
-    user = int(request.GET.get('uid'))
-    dt_time = datetime.datetime.fromtimestamp(time_stamp)
+    user = int(request.GET.get('uid'))i
+    dt_time = datetime.fromtimestamp(time_stamp) + timedelta(hours=8)
     WTime.objects.get_or_create(user_id=user, time_stamp=dt_time)
     return render(request, '404.html')
 
