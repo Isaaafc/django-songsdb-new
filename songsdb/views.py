@@ -164,8 +164,9 @@ def delete_song(request):
 def log_time(request):
     time_stamp = long(request.GET.get('t'))
     user = int(request.GET.get('uid'))
+    onl = bool(request.GET.get('online'))
     dt_time = datetime.fromtimestamp(time_stamp) + timedelta(hours=8)
-    WTime.objects.get_or_create(user_id=user, time_stamp=dt_time)
+    WTime.objects.get_or_create(user_id=user, time_stamp=dt_time, online=onl)
     return render(request, '404.html')
 
 def show_log_time(request):

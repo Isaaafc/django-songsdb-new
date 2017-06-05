@@ -31,3 +31,4 @@ class Song(models.Model):
 class WTime(models.Model):
     user_id = models.IntegerField()
     time_stamp = models.DateTimeField()
+    online = models.BooleanField()
