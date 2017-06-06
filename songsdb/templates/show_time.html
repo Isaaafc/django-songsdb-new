@@ -4,7 +4,7 @@
 {% for item in result %}
 <tr>
 <td>{{ item.user_id }}</td>
-<td>{{ item.time_stamp|date:"SHORT_DATETIME_FORMAT" }}</td>
+<td>{{ item.time_stamp|date:"DATETIME_FORMAT" }}</td>
 <td>{{ item.online }}</td>
 </tr>
 {% endfor %}
