@@ -166,7 +166,8 @@ def log_time(request):
     user = int(request.GET.get('uid'))
     onl = bool(request.GET.get('online'))
     dt_time = datetime.fromtimestamp(time_stamp) + timedelta(hours=8)
-    WTime.objects.get_or_create(user_id=user, time_stamp=dt_time, online=onl)
+    new_row = WTime(user_id=user, time_stamp=dt_time, online=onl)
+    new_row.save()
     return render(request, '404.html')
 
 def show_log_time(request):
