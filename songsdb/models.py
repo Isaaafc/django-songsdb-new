@@ -29,8 +29,6 @@ class Song(models.Model):
     song_type = models.ForeignKey(Type)
 
 class WTime(models.Model):
-    def __unicode__(self):
-        return "%s"%self.user_id
     user_id = models.IntegerField()
     time_stamp = models.DateTimeField()
     online = models.BooleanField()
