@@ -40,7 +40,7 @@
             <td>{{ item.author }}</td>
             <td>{{ item.publisher }}</td>
             <td>{{ item.song_type }}</td>
-            <td>{{ item.document_link }}</td>
+            <td><a href="{{ item.document_link }}">Link</a></td>
         </tr>
         {% endfor %}
     </table>
