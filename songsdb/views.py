@@ -144,7 +144,7 @@ def edit_song(request):
 
             song = Song.objects.get(pk=song_id)
             song.song_name = name
-            song.link = song_link
+            song.document_link = song_link
             song.year = song_year
             song.author = new_author
             song.publisher = new_publisher
