@@ -112,7 +112,7 @@ def edit_song(request):
         if form.is_valid():
             song_id = request.POST.get('song_id') 
             name = form.cleaned_data['song_name']
-            link = form.cleaned_data['document_link']
+            song_link = form.cleaned_data['document_link']
             song_year = form.cleaned_data['year']
             author = form.cleaned_data['author']
             author_choice = form.cleaned_data['author_choice']
@@ -144,7 +144,7 @@ def edit_song(request):
 
             song = Song.objects.get(pk=song_id)
             song.song_name = name
-            song.link = link
+            song.link = song_link
             song.year = song_year
             song.author = new_author
             song.publisher = new_publisher
