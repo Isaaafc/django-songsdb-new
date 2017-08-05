@@ -101,13 +101,15 @@ h1 {
   background: #fff;
   margin: 0 auto;
   padding: 10px 17px;
+  
   -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
 }
 
 #keywords {
   margin: 0 auto;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 15px;
+  word-wrap: break-word;
 }
 
 
@@ -144,8 +146,8 @@ h1 {
 #keywords tbody tr td {
   text-align: center;
   padding: 15px 10px;
-  max-width: 20ch;
-  overflow: hidden;
+  max-width: 15ch;
+  word-wrap: break-word;
 }
 #keywords tbody tr td.lalign {
   text-align: left;
