@@ -23,6 +23,10 @@ def add_song(request):
             publisher_choice = form.cleaned_data['publisher_choice']
             song_type = form.cleaned_data['song_type']
             type_choice = form.cleaned_data['type_choice']
+            document_link2 = form.cleaned_data['document_link2']
+            document_link3 = form.cleaned_data['document_link3']
+            media_link= form.cleaned_data['media_link']
+            language = form.cleaned_data['language']
 
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
@@ -44,8 +48,8 @@ def add_song(request):
                 new_type, created = Type.objects.get_or_create(desc=song_type)
             else:
                 new_type, created = Type.objects.get_or_create(desc='--')
-            
-            new_song, created = Song.objects.get_or_create(song_name=name,document_link=link,year=song_year,author=new_author,publisher=new_publisher,song_type=new_type)
+
+            new_song, created = Song.objects.get_or_create(song_name=name,document_link=link,year=song_year,author=new_author,publisher=new_publisher,song_type=new_type, document_link2 = document_link2, document_link3 = document_link3, media_link=media_link, language=language)
                         
             return HttpResponseRedirect('/view_songs')
         else:
@@ -119,8 +123,12 @@ def edit_song(request):
             publisher = form.cleaned_data['publisher']
             publisher_choice = form.cleaned_data['publisher_choice']
             song_type = form.cleaned_data['song_type']
-            type_choice = form.cleaned_data['type_choice']
-            
+            type_choice = form.cleaned_data['type_choice'] 
+            document_link2 = form.cleaned_data['document_link2']
+            document_link3 = form.cleaned_data['document_link3']
+            media_link= form.cleaned_data['media_link']
+            language = form.cleaned_data['language']
+
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
             elif author is not None:
@@ -149,6 +157,11 @@ def edit_song(request):
             song.author = new_author
             song.publisher = new_publisher
             song.song_type = new_type
+            song.language = language
+            song.document_link2 = document_link2
+            song.document_link3 = document_link3
+            song.media_link = media_link
+
             song.save()
         return HttpResponseRedirect('/view_songs')
     return render(request, '404.html')
