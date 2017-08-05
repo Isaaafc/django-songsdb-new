@@ -100,8 +100,7 @@ h1 {
   width: 850px;
   background: #fff;
   margin: 0 auto;
-  padding: 10px 17px;
-  
+  padding: 7px 10px;
   -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
 }
 
@@ -119,11 +118,11 @@ h1 {
 }
 #keywords thead tr th { 
   font-weight: bold;
-  padding: 12px 30px;
-  padding-left: 42px;
+  padding: 6px 10px;
+  padding-left: 20px;
 }
 #keywords thead tr th span { 
-  padding-right: 20px;
+  padding-right: 10px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
 }
