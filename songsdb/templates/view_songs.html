@@ -10,9 +10,8 @@
             <th></th>
             <th></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>
-            <th><a href="{% url 'view_songs' %}?order_by=year">Year</a></th>
+            
             <th><a href="{% url 'view_songs' %}?order_by=author">Author</a></th>
-            <th><a href="{% url 'view_songs' %}?order_by=publisher">Publisher</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=type">Type</a></th>
             <th>Language</th>
             <th>Document link</th>
@@ -40,9 +39,7 @@
                 </form>
             </td>
             <td>{{ item.song_name }}</td>
-            <td>{{ item.year }}</td>
             <td>{{ item.author }}</td>
-            <td>{{ item.publisher }}</td>
             <td>{{ item.song_type }}</td>
             <td>{{ item.language }}</td>
             <td><a href="{{ item.document_link }}">Link</a></td>
