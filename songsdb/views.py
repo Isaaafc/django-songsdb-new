@@ -180,6 +180,15 @@ def delete_song(request):
         return HttpResponseRedirect('/view_songs')
     return render(request, '404.html')
 
+def add_collection(request):
+    if request.method == 'POST':
+        form = AddCollectionForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['collection_name']
+            publisher = form.cleaned_data['publisher']
+            publisher_choice = form.cleaned_data['publisher_choice']
+            copyright_text = form.cleaned_data['copyright_text']
+
 def log_time(request):
     time_stamp = long(request.GET.get('t'))
     user = int(request.GET.get('uid'))
