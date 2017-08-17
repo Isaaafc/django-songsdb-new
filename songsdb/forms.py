@@ -35,4 +35,4 @@ class SearchCollectionForm(forms.Form):
     search_field = forms.ChoiceField(label='Search for', choices=(('name', 'Name'),
      #('year', 'Year'),
      #('author', 'Author'),
-     ('Publisher', 'Publisher')
+     ('Publisher', 'Publisher'))
