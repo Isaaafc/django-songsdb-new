@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^edit_song$', views.edit_song, name='edit_song'),
     url(r'^delete_song$', views.delete_song, name='delete_song'),
     url(r'^add_collection$', views.add_collection, name='add_collection'),
+    url(r'^view_collections$', views.view_collections, name='view_collections'),
     url(r'^AHjEgvLdXWQGBFU', views.log_time, name='AHjEgvLdXWQGBFU'),
     url(r'^show_log_time', views.show_log_time, name='show_log_time'),
 ]
