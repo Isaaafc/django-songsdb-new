@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .forms import AddForm, SearchForm, SearchCollectionForm
+from .forms import AddForm, SearchForm, SearchCollectionForm, AddCollectionForm
 from .models import Author, Publisher, Type, Song, WTime, Collection
 from datetime import datetime, timedelta
 # Create your views here.
