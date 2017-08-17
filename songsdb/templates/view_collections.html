@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}View Collection{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <table id="keywords" data-role="table" class="ui-responsive">
+        <thead>
+            <th></th>
+            <th></th>
+	    <th>Name</th>
+            <th>Publisher<th/>
+	    <th>Copyright Statement</th>
+        </thead>
+        <div style="margin-top: 10px; margin-bottom: 10px">
+        <form action="/view_collections" method="post">
+            {% csrf_token %}
+            <label for="{{ form.search_bar.label }}" style="display:inline-block;vertical-align:middle">{{ form.search_bar.label_tag }}</label>
+           <span style="margin-left: 10px; margin-right: 10px;"> {{form.search_bar}}</span>
+            <span style="margin-right: 10px;">{{form.search_field}}</span>
+            <input type="submit" value="OK">
+        </form>
+        </div>
+        {% for item in collections %}
+        <tr>
+            <td><a href="{% url 'edit_collection' %}?collection_id={{item.id}}">Edit</a></td>
+            <td>
+                <form action="/delete_collection" method="post" onsubmit="return confirm('Do you want to delete the collection?')")">
+                    {% csrf_token %}
+                    <input type="hidden" value={{item.id}} name="collection_id">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+            <td>{{ item.collection_name }}</td>
+            <td>{{ item.publisher }}</td>
+            <td>{{ item.copyright_text }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

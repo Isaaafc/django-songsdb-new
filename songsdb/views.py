@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import AddForm, SearchForm
-from .models import Author, Publisher, Type, Song, WTime
+from .models import Author, Publisher, Type, Song, WTime, Collection
 from datetime import datetime, timedelta
 # Create your views here.
 
@@ -188,6 +188,54 @@ def add_collection(request):
             publisher = form.cleaned_data['publisher']
             publisher_choice = form.cleaned_data['publisher_choice']
             copyright_text = form.cleaned_data['copyright_text']
+            
+            if publisher_choice is not None:  
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher_choice)
+            elif publisher is not None:
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
+            else:
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
+            
+            new_collection, created = Collection.objects.get_or_create(collection_name=name, publisher=new_publisher, copyright_text=copyright_text)
+
+            return HttpResponseRedirect('/view_songs')
+    else:
+        form = AddCollectionForm()
+        return render(request, 'add_collection.html', {'form' : form})
+
+def view_collection(request):
+    if request.method == 'GET':
+        form = SearchCollectionForm()
+        order = request.GET.get('order_by', 'collection_name')
+        page = request.GET.get('page', 1)
+        
+        query_result = Collection.objects.all().order_by(order)
+
+        return render(request, 'view_collections.html', {'collections' : query_result, 'form' : form, 'order_by': order})
+    else:
+        form = SearchCollectionForm(request.POST)
+        if form.is_valid():
+            keyword = form.cleaned_data['search_bar']
+            search_field = form.cleaned_data['search_field']
+            query_result = None
+            if search_field=='year':
+                strsplit = keyword.split('-')
+                try:
+                    start_year = int(strsplit[0])
+                    if len(strsplit) > 1:
+                        end_year = int(strsplit[1])
+                        if end_year >= start_year:
+                            query_result = Collection.objects.filter(year__gte=start_year, year__lte=end_year)
+                    else:
+                        query_result = Collection.objects.filter(year=start_year)  
+                except ValueError:
+                    return render(request, 'view_collections.html', {'form' : form})
+            elif search_field=='name':
+                query_result = Collection.objects.filter(collection_name__contains=keyword)
+            elif search_field=='publisher':
+                query_result = Collection.objects.filter(publisher__contains=keyword)
+
+            return render(request, 'view_collections.html', {'collections' : query_result, 'form' : form})
 
 def log_time(request):
     time_stamp = long(request.GET.get('t'))

@@ -29,3 +29,10 @@ class SearchForm(forms.Form):
      #('author', 'Author'),
      #('Publisher', 'Publisher'),
      ('type', 'Type')))
+
+class SearchCollectionForm(forms.Form):
+    search_bar = forms.CharField(label='Enter keyword', max_length=200)
+    search_field = forms.ChoiceField(label='Search for', choices=(('name', 'Name'),
+     #('year', 'Year'),
+     #('author', 'Author'),
+     ('Publisher', 'Publisher')
