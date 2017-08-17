@@ -203,7 +203,7 @@ def add_collection(request):
         form = AddCollectionForm()
         return render(request, 'add_collection.html', {'form' : form})
 
-def view_collection(request):
+def view_collections(request):
     if request.method == 'GET':
         form = SearchCollectionForm()
         order = request.GET.get('order_by', 'collection_name')
