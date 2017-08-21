@@ -237,6 +237,35 @@ def view_collections(request):
 
             return render(request, 'view_collections.html', {'collections' : query_result, 'form' : form})
 
+def edit_collection(request):
+    if request.method == 'GET':
+        collection_id = request.GET.get('collection_id')
+        collection = Collection.objects.get(pk=collection_id)
+        form = AddCollectionForm(initial={'collection_name' : collection.collection_name, 'publisher' : collection.publisher, 'copyright_text' : collection.copyright_text})
+        return render(request, 'edit_collection.html', {'form' : form, 'collection_id' : collection_id})
+    else:
+        form = AddCollectionForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['collection_name']
+            publisher = form.cleaned_data['publisher']
+            publisher_choice = form.cleaned_data['publisher_choice']
+            copyright_text = form.cleaned_data['copyright_text']
+            collection_id=form.cleaned_data['collection_id']            
+            
+            collection = Collection.objects.get(pk=collection_id)
+            if publisher_choice is not None:  
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher_choice)
+            elif publisher is not None:
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
+            else:
+                new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
+
+            collection.publisher = new_publisher
+            collection.name = name
+            collection.copyright_text = copyright_text        
+            collection.save()
+            return HttpResponseRedirect('/view_collections')            
+
 def log_time(request):
     time_stamp = long(request.GET.get('t'))
     user = int(request.GET.get('uid'))

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Song{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <form action="/edit_collection" method="post">
+    {% csrf_token %}
+    <table>
+        {% for field in form %}
+        <tbody>
+        <tr id="field_{{ field.auto_id }}">
+            <td>
+              <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+            </td>
+            <td>
+            {{field}}
+            </td>
+            {% if field.auto_id == 'id_publisher' or field.auto_id == 'id_publisher_choice' %}
+                 <td><button type="button" class="togglePublisher">Add/Existing</button></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <input type="hidden" id="collection_id" name="collection_id" value={{ collection_id }}>
+    <input type="submit" value="OK">
+    </form>
+</div>
+
+{% endblock %}
