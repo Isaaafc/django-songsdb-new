@@ -202,7 +202,7 @@ def add_collection(request):
             
             new_collection, created = Collection.objects.get_or_create(collection_name=name, publisher=new_publisher, copyright_text=copyright_text)
 
-            return HttpResponseRedirect('/view_songs')
+            return HttpResponseRedirect('/view_collections')
     else:
         form = AddCollectionForm()
         return render(request, 'add_collection.html', {'form' : form})
@@ -238,7 +238,7 @@ def view_collections(request):
                 query_result = Collection.objects.filter(collection_name__contains=keyword)
             elif search_field=='publisher':
                 query_result = Collection.objects.filter(publisher__contains=keyword)
-            elif search_field=='copyright'
+            elif search_field=='copyright':
                 query_result = Collection.objects.filter(copyright_text__contains=keyword)
 
             return render(request, 'view_collections.html', {'collections' : query_result, 'form' : form})
