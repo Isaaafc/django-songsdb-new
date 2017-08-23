@@ -1,5 +1,5 @@
 from django import forms
-from .models import Author, Publisher, Type
+from .models import Author, Publisher, Type, Collection
 
 class AddForm(forms.Form):
     song_name = forms.CharField(label='Song name', max_length=50)
