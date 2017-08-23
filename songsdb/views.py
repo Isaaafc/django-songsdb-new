@@ -18,8 +18,8 @@ def add_song(request):
             link = form.cleaned_data['document_link']
             #song_year = form.cleaned_data['year']
             song_year = "1870"
-            author = form.cleaned_data['author']
-            author_choice = form.cleaned_data['author_choice']
+            #author = form.cleaned_data['author']
+            #author_choice = form.cleaned_data['author_choice']
             #publisher = form.cleaned_data['publisher']
             #publisher_choice = form.cleaned_data['publisher_choice']
             publisher = None

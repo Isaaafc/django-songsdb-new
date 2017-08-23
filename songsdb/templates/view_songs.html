@@ -10,7 +10,6 @@
             <th></th>
             <th></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>          
-            <th><a href="{% url 'view_songs' %}?order_by=author">Author</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_type">Type</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=language">Language</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=collection">Collection</a></th>
@@ -39,7 +38,6 @@
                 </form>
             </td>
             <td>{{ item.song_name }}</td>
-            <td>{{ item.author }}</td>
             <td>{{ item.song_type }}</td>
             <td>{{ item.language }}</td>
             <td>{{ item.collection }}</td>
