@@ -271,7 +271,7 @@ def edit_collection(request):
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
 
             collection.publisher = new_publisher
-            collection.name = name
+            collection.collection_name = name
             collection.copyright_text = copyright_text        
             collection.save()
             return HttpResponseRedirect('/view_collections')            
