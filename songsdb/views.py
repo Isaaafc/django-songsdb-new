@@ -250,7 +250,7 @@ def edit_collection(request):
             publisher = form.cleaned_data['publisher']
             publisher_choice = form.cleaned_data['publisher_choice']
             copyright_text = form.cleaned_data['copyright_text']
-            collection_id=form.cleaned_data['collection_id']            
+            collection_id=request.POST.get('collection_id')            
             
             collection = Collection.objects.get(pk=collection_id)
             if publisher_choice is not None:  
@@ -265,6 +265,14 @@ def edit_collection(request):
             collection.copyright_text = copyright_text        
             collection.save()
             return HttpResponseRedirect('/view_collections')            
+
+def delete_collection(request):
+    if request.method == 'POST':
+        collection_id = request.POST.get('collection_id')
+        collection = Collection.objects.get(pk=collection_id)
+        collection.delete()
+        return HttpResponseRedirect('/view_collections')
+    return render(request, '404.html')
 
 def log_time(request):
     time_stamp = long(request.GET.get('t'))
