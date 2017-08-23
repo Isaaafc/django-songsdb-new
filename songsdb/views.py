@@ -22,6 +22,8 @@ def add_song(request):
             #author_choice = form.cleaned_data['author_choice']
             #publisher = form.cleaned_data['publisher']
             #publisher_choice = form.cleaned_data['publisher_choice']
+            author = None
+            author_choice = None
             publisher = None
             publisher_choice = None
             song_type = form.cleaned_data['song_type']
