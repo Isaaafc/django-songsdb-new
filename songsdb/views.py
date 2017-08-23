@@ -104,6 +104,8 @@ def view_songs(request):
                 query_result = Song.objects.filter(publisher__contains=keyword)
             elif search_field=='type':
                 query_result = Song.objects.filter(song_type__contains=keyword)
+            elif search_field=='collection':
+                query_result = Song.object.filter(collection__contains=keyword)
 
             return render(request, 'view_songs.html', {'songs' : query_result, 'form' : form})
 
@@ -134,6 +136,7 @@ def edit_song(request):
             document_link3 = form.cleaned_data['document_link3']
             media_link= form.cleaned_data['media_link']
             language = form.cleaned_data['language']
+            collection = form.cleaned_data['collection']
 
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
@@ -167,6 +170,7 @@ def edit_song(request):
             song.document_link2 = document_link2
             song.document_link3 = document_link3
             song.media_link = media_link
+            song.collection = collection
 
             song.save()
         return HttpResponseRedirect('/view_songs')
@@ -234,6 +238,8 @@ def view_collections(request):
                 query_result = Collection.objects.filter(collection_name__contains=keyword)
             elif search_field=='publisher':
                 query_result = Collection.objects.filter(publisher__contains=keyword)
+            elif search_field=='copyright'
+                query_result = Collection.objects.filter(copyright_text__contains=keyword)
 
             return render(request, 'view_collections.html', {'collections' : query_result, 'form' : form})
 

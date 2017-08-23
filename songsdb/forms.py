@@ -14,7 +14,8 @@ class AddForm(forms.Form):
     #publisher = forms.CharField(label='Publisher', max_length=50, required=False)
     #publisher_choice = forms.ModelChoiceField(label='Publisher', queryset=Publisher.objects.all(), required=False)
     song_type = forms.CharField(label='Song type', max_length=50, required=False)
-    type_choice=forms.ModelChoiceField(label='Song type', queryset=Type.objects.all(), required=False)
+    type_choice = forms.ModelChoiceField(label='Song type', queryset=Type.objects.all(), required=False)
+    collection = forms.ModelChoiceField(label='Collection', queryset=Collection.objects.all(), required=False)
    
 class AddCollectionForm(forms.Form):
     collection_name = forms.CharField(label='Name', max_length=200)
@@ -28,11 +29,13 @@ class SearchForm(forms.Form):
      #('year', 'Year'),
      #('author', 'Author'),
      #('Publisher', 'Publisher'),
-     ('type', 'Type')))
+     ('type', 'Type'),
+     ('collection', 'Collection')))
 
 class SearchCollectionForm(forms.Form):
     search_bar = forms.CharField(label='Enter keyword', max_length=200)
     search_field = forms.ChoiceField(label='Search for', choices=(('name', 'Name'),
      #('year', 'Year'),
      #('author', 'Author'),
-     ('Publisher', 'Publisher')))
+     ('publisher', 'Publisher'),
+     ('copyright', 'Copyright Text')))
