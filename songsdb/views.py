@@ -269,6 +269,9 @@ def edit_collection(request):
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name=publisher)
             else:
                 new_publisher, created = Publisher.objects.get_or_create(publisher_name='--')
+            
+            if copyright_text is None:
+                copyright_text = '--'
 
             collection.publisher = new_publisher
             collection.collection_name = name
