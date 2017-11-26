@@ -42,7 +42,11 @@
             <td>{{ item.song_type }}</td>
             <td>{{ item.language }}</td>
             <td>{{ item.collection }}</td>
-            <td><a href="{{ item.document_link }}">Link</a></td>
+            <td>
+              {% if item.document_link is not None %}
+              <a href="{{ item.document_link }}">Link</a>
+              {% endif %}
+            </td>
             <td>
                 {% if item.document_link2 is not None %}
                 <a href="{{ item.document_link2 }}">Link2</a>
