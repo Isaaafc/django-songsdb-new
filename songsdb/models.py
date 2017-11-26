@@ -39,6 +39,7 @@ class Song(models.Model):
     author = models.ForeignKey(Author)
     publisher = models.ForeignKey(Publisher)
     song_type = models.ForeignKey(Type)
+    lyrics = models.TextField(null=True, blank=True)
 
 class WTime(models.Model):
     user_id = models.IntegerField()

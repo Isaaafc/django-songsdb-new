@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}View Song{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <p name="title">
+    {{ song.song_name }}
+  </p>
+  <p>
+    Collection: {{ song.collection }}
+  </p>
+  <p>
+    {{ song.lyrics }}
+  </p>
+</div>
+
+{% endblock %}

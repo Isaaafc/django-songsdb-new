@@ -9,7 +9,7 @@
         <thead>
             <th></th>
             <th></th>
-            <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>          
+            <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_type">Type</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=language">Language</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=collection">Collection</a></th>
@@ -17,6 +17,7 @@
             <th>Document link 2</th>
             <th>Document link 3</th>
             <th>Media link</th>
+            <th>Lyrics link</th>
         </thead>
         <div style="margin-top: 10px; margin-bottom: 10px">
         <form action="/view_songs" method="post">
@@ -55,6 +56,11 @@
             <td>
                 {% if item.media_link is not None %}
                 <a href="{{ item.media_link }}">Media</a>
+                {% endif %}
+            </td>
+            <td>
+                {% if item.lyrics is not None %}
+                <a href="{% url 'view_lyrics' %}?song_id={{item.id}}">Lyrics</a>
                 {% endif %}
             </td>
         </tr>

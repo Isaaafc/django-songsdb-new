@@ -14,13 +14,14 @@ class AddForm(forms.Form):
     #publisher = forms.CharField(label='Publisher', max_length=50, required=False)
     #publisher_choice = forms.ModelChoiceField(label='Publisher', queryset=Publisher.objects.all(), required=False)
     song_type = forms.CharField(label='Song type', max_length=50, required=False)
-    type_choice = forms.ModelChoiceField(label='Song type', queryset=Type.objects.all(), required=False)
-    collection = forms.ModelChoiceField(label='Collection', queryset=Collection.objects.all(), required=False)
-   
+    type_choice = forms.ModelChoiceField(label='Song type', queryset=Type.objects.all().order_by('desc'), required=False)
+    collection = forms.ModelChoiceField(label='Collection', queryset=Collection.objects.all().order_by('collection_name'), required=False)
+    lyrics = forms.CharField(label='Lyrics', widget=forms.Textarea, required=False)
+
 class AddCollectionForm(forms.Form):
     collection_name = forms.CharField(label='Name', max_length=200)
     publisher = forms.CharField(label='Publisher', max_length=50, required=False)
-    publisher_choice = forms.ModelChoiceField(label='Publisher', queryset=Publisher.objects.all(), required=False)
+    publisher_choice = forms.ModelChoiceField(label='Publisher', queryset=Publisher.objects.all().order_by('publisher_name'), required=False)
     copyright_text= forms.CharField(label='Copyright Text', max_length=500, required=False)
 
 class SearchForm(forms.Form):
@@ -30,7 +31,8 @@ class SearchForm(forms.Form):
      #('author', 'Author'),
      #('Publisher', 'Publisher'),
      ('type', 'Type'),
-     ('collection', 'Collection')))
+     ('collection', 'Collection'),
+     ('lyrics', 'Lyrics')))
 
 class SearchCollectionForm(forms.Form):
     search_bar = forms.CharField(label='Enter keyword', max_length=200)
