@@ -110,9 +110,9 @@ def view_songs(request):
             elif search_field=='type':
                 query_result = Song.objects.filter(song_type__contains=keyword)
             elif search_field=='collection':
-                query_result = Song.object.filter(collection__contains=keyword)
+                query_result = Song.objects.filter(collection__contains=keyword)
             elif search_field=='lyrics':
-                query_result = Song.object.filter(lyrics__contains=keyword)
+                query_result = Song.objects.filter(lyrics__contains=keyword)
             return render(request, 'view_songs.html', {'songs' : query_result, 'form' : form})
 
 def edit_song(request):
