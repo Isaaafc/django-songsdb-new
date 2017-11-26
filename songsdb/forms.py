@@ -3,7 +3,7 @@ from .models import Author, Publisher, Type, Collection
 
 class AddForm(forms.Form):
     song_name = forms.CharField(label='Song name', max_length=50)
-    document_link = forms.CharField(label='Document link', max_length=200)
+    document_link = forms.CharField(label='Document link', max_length=200, required=False)
     #year = forms.IntegerField(label='Published year', max_value=2100, min_value=1800, required=False)
     document_link2 = forms.CharField(label='Document link 2', max_length=200, required=False)
     document_link3 = forms.CharField(label='Document link 2', max_length=200, required=False)
