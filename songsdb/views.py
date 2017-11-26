@@ -120,7 +120,8 @@ def edit_song(request):
         song_id = request.GET.get('song_id')
         song = Song.objects.get(pk=song_id)
         form = AddForm(initial={'song_name' : song.song_name, 'document_link' : song.document_link,
-                       'year' : song.year, 'author' : song.author, 'publisher' : song.publisher, 'song_type' : song.song_type})
+                       'year' : song.year, 'author' : song.author, 'publisher' : song.publisher, 'song_type' : song.song_type,
+                       'lyrics' : song.lyrics})
         return render(request, 'edit_song.html', {'form' : form, 'song_id' : song_id})
     else:
         form = AddForm(request.POST)
@@ -145,6 +146,7 @@ def edit_song(request):
             media_link= form.cleaned_data['media_link']
             language = form.cleaned_data['language']
             collection = form.cleaned_data['collection']
+            lyrics = form.cleaned_data['lyrics']
 
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
@@ -179,6 +181,7 @@ def edit_song(request):
             song.document_link3 = document_link3
             song.media_link = media_link
             song.collection = collection
+            song.lyrics = lyrics
 
             song.save()
         return HttpResponseRedirect('/view_songs')
