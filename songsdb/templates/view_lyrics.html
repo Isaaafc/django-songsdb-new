@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
-
-{% block title %}View Song{% endblock %}
-
-{% block content %}
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ song.song_name }}</title>
+</head>
+<body>
 <div class="container">
   <p name="title">
     {{ song.song_name }}
@@ -15,5 +15,5 @@
     {{ song.lyrics }}
   </p>
 </div>
-
-{% endblock %}
+</body>
+</html>
