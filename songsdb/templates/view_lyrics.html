@@ -6,11 +6,13 @@
 <body>
 <div class="container">
   <p name="title">
-    {{ song.song_name }}
+    --{{ song.song_name }}--
   </p>
+  {% if song.collection is not None %}
   <p>
     Collection: {{ song.collection }}
   </p>
+  {% end if %}
   <p>
   <pre>
     {{ song.lyrics }}
