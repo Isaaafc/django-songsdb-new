@@ -294,7 +294,7 @@ def delete_collection(request):
 def view_lyrics(request):
     if request.method == 'GET':
         song_id = request.GET.get('song_id')
-        song = Song.object.get(pk=song_id)
+        song = Song.objects.get(pk=song_id)
         return render(request, 'view_lyrics.html', {'song' : song})
     return render(request, '404.html')
 
