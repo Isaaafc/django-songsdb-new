@@ -108,9 +108,9 @@ def view_songs(request):
             elif search_field=='publisher':
                 query_result = Song.objects.filter(publisher__contains=keyword)
             elif search_field=='type':
-                query_result = Song.objects.filter(song_type__contains=keyword)
+                query_result = Song.objects.filter(song_type__desc__contains=keyword)
             elif search_field=='collection':
-                query_result = Song.objects.filter(collection__contains=keyword)
+                query_result = Song.objects.filter(collection__collection_name__contains=keyword)
             elif search_field=='lyrics':
                 query_result = Song.objects.filter(lyrics__contains=keyword)
             return render(request, 'view_songs.html', {'songs' : query_result, 'form' : form})
@@ -248,7 +248,7 @@ def view_collections(request):
             elif search_field=='name':
                 query_result = Collection.objects.filter(collection_name__contains=keyword)
             elif search_field=='publisher':
-                query_result = Collection.objects.filter(publisher__contains=keyword)
+                query_result = Collection.objects.filter(publisher__publisher_name__contains=keyword)
             elif search_field=='copyright':
                 query_result = Collection.objects.filter(copyright_text__contains=keyword)
 
