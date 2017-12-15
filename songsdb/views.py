@@ -122,7 +122,7 @@ def edit_song(request):
         form = AddForm(initial={'song_name' : song.song_name, 'document_link' : song.document_link,
                        'year' : song.year, 'author' : song.author, 'publisher' : song.publisher, 'song_type' : song.song_type,
                        'lyrics' : song.lyrics, 'media_link' : song.media_link, 'document_link2' : song.document_link2,
-                       'document_link3' : song.document_link3, 'collection' : song.collection.pk})
+                       'document_link3' : song.document_link3, 'collection' : song.collection})
         return render(request, 'edit_song.html', {'form' : form, 'song_id' : song_id})
     else:
         form = AddForm(request.POST)
