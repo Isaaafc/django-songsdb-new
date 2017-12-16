@@ -35,6 +35,7 @@ class Song(models.Model):
     media_link = models.CharField(max_length=200, null=True, blank=True)
     language = models.CharField(max_length=3, null=True, blank=True)
     year = models.SmallIntegerField()
+    song_num = models.CharField(max_length=5, null=True, blank=True)
     collection = models.ForeignKey(Collection, null=True, blank=True)
     author = models.ForeignKey(Author)
     publisher = models.ForeignKey(Publisher)
