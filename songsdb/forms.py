@@ -14,6 +14,7 @@ class AddForm(forms.Form):
     #publisher = forms.CharField(label='Publisher', max_length=50, required=False)
     #publisher_choice = forms.ModelChoiceField(label='Publisher', queryset=Publisher.objects.all(), required=False)
     song_type = forms.CharField(label='Song type', max_length=50, required=False)
+    song_num = forms.CharField(label='Song number in collection', max_length=5, required=False)
     type_choice = forms.ModelChoiceField(label='Song type', queryset=Type.objects.all().order_by('desc'), required=False)
     collection = forms.ModelChoiceField(label='Collection', queryset=Collection.objects.all().order_by('collection_name'), required=False)
     lyrics = forms.CharField(label='Lyrics', widget=forms.Textarea, required=False)

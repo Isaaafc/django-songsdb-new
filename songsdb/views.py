@@ -33,6 +33,7 @@ def add_song(request):
             media_link= form.cleaned_data['media_link']
             language = form.cleaned_data['language']
             lyrics = form.cleaned_data['lyrics']
+            song_num = form.cleaned_data['song_num']
 
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
@@ -57,7 +58,8 @@ def add_song(request):
 
             new_song, created = Song.objects.get_or_create(song_name=name,document_link=link,year=song_year,
             author=new_author,publisher=new_publisher,song_type=new_type, document_link2 = document_link2,
-             document_link3 = document_link3, media_link=media_link, language=language, lyrics=lyrics)
+            document_link3 = document_link3, media_link=media_link, language=language, lyrics=lyrics,
+            song_num=song_num)
 
             return HttpResponseRedirect('/view_songs')
         else:
@@ -122,7 +124,7 @@ def edit_song(request):
         form = AddForm(initial={'song_name' : song.song_name, 'document_link' : song.document_link,
                        'year' : song.year, 'author' : song.author, 'publisher' : song.publisher, 'song_type' : song.song_type,
                        'lyrics' : song.lyrics, 'media_link' : song.media_link, 'document_link2' : song.document_link2,
-                       'document_link3' : song.document_link3, 'collection' : song.collection})
+                       'document_link3' : song.document_link3, 'collection' : song.collection, 'song_num' : song.song_num})
         return render(request, 'edit_song.html', {'form' : form, 'song_id' : song_id})
     else:
         form = AddForm(request.POST)
@@ -148,6 +150,7 @@ def edit_song(request):
             language = form.cleaned_data['language']
             collection = form.cleaned_data['collection']
             lyrics = form.cleaned_data['lyrics']
+            song_num = form.cleaned_data['song_num']
 
             if author_choice is not None:
                 new_author, created = Author.objects.get_or_create(author_name=author_choice)
@@ -183,6 +186,7 @@ def edit_song(request):
             song.media_link = media_link
             song.collection = collection
             song.lyrics = lyrics
+            song.song_num = song_num
 
             song.save()
         return HttpResponseRedirect('/view_songs')
