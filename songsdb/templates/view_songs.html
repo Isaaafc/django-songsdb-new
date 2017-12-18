@@ -11,6 +11,7 @@
             <th></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_name">Name</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=song_type">Type</a></th>
+            <th><a href="{% url 'view_songs' %}?order_by=song_num">Song Number</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=language">Language</a></th>
             <th><a href="{% url 'view_songs' %}?order_by=collection">Collection</a></th>
             <th>Document link</th>
@@ -40,6 +41,7 @@
             </td>
             <td>{{ item.song_name }}</td>
             <td>{{ item.song_type }}</td>
+            <td>{{ item.song_num }}</td>
             <td>{{ item.language }}</td>
             <td>{{ item.collection }}</td>
             <td>
