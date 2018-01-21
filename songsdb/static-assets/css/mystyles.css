@@ -148,7 +148,7 @@ h1 {
   max-width: 15ch;
   word-wrap: break-word;
 }
-#keywords tbody tr td.lalign {
+#keywords tbody tr th td.lalign {
   text-align: left;
 }
 
