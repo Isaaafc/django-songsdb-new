@@ -6,7 +6,7 @@ class AddForm(forms.Form):
     document_link = forms.CharField(label='Document link', max_length=200, required=False)
     #year = forms.IntegerField(label='Published year', max_value=2100, min_value=1800, required=False)
     document_link2 = forms.CharField(label='Document link 2', max_length=200, required=False)
-    document_link3 = forms.CharField(label='Document link 2', max_length=200, required=False)
+    document_link3 = forms.CharField(label='Document link 3', max_length=200, required=False)
     media_link = forms.CharField(label='Media link', max_length=200, required=False)
     language = forms.ChoiceField(label='Language', choices=(('CHI', 'CHI'), ('ENG', 'ENG'), ('PTH', 'PTH')))
     #author = forms.CharField(label='Author', max_length=50, required=False)
