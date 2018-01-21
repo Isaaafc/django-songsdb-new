@@ -145,7 +145,7 @@ h1 {
 #keywords tbody tr td th {
   text-align: center;
   padding: 15px 10px;
-  max-width: 20ch;
+  max-width: 15ch;
   word-wrap: break-word;
 }
 #keywords tbody tr td.lalign {
