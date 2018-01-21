@@ -45,27 +45,27 @@
             <td>{{ item.language }}</td>
             <td>{{ item.collection }}</td>
             <td>
-              {% if item.document_link is not None %}
+              {% if item.document_link %}
               <a href="{{ item.document_link }}" target="_blank">Link</a>
               {% endif %}
             </td>
             <td>
-                {% if item.document_link2 is not None %}
+                {% if item.document_link2 %}
                 <a href="{{ item.document_link2 }}" target="_blank">Link2</a>
                 {% endif %}
             </td>
             <td>
-                {% if item.document_link3 is not None %}
+                {% if item.document_link3 %}
                 <a href="{{ item.document_link3 }}" target="_blank">Link3</a>
                 {% endif %}
             </td>
             <td>
-                {% if item.media_link is not None %}
+                {% if item.media_link %}
                 <a href="{{ item.media_link }}" target="_blank">Media</a>
                 {% endif %}
             </td>
             <td>
-                {% if item.lyrics is not None %}
+                {% if item.lyrics %}
                 <a href="{% url 'view_lyrics' %}?song_id={{item.id}}" target="_blank">Lyrics</a>
                 {% endif %}
             </td>
