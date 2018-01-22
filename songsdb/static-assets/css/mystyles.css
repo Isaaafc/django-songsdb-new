@@ -146,6 +146,7 @@ h1 {
 #keywords thead tbody tr td th {
   text-align: center;
   padding: 15px 10px;
+  padding-left: 20px;
   width: 100%;
   word-wrap: break-word;
 }
