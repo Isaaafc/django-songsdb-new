@@ -116,12 +116,12 @@ h1 {
   cursor: pointer;
   background: #eee;
 }
-#keywords thead tr th { 
+#keywords thead tr th td { 
   font-weight: bold;
   padding: 6px 10px;
   padding-left: 20px;
 }
-#keywords thead tr th span { 
+#keywords thead tr th span td { 
   padding-right: 10px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
