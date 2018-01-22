@@ -147,6 +147,8 @@ h1 {
   text-align: center;
   padding: 15px 10px;
   padding-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   width: 100%;
   word-wrap: break-word;
 }
