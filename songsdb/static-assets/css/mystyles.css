@@ -81,7 +81,7 @@ sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
   top: 50%;
 }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table { border-collapse: collapse; border-spacing: 0; width: 95%; }
 img { border: 0; max-width: 100%; }
 
 h1 { 
