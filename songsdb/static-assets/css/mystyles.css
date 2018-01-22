@@ -142,7 +142,8 @@ h1 {
 #keywords tbody tr { 
   color: #555;
 }
-#keywords tbody tr td th {
+
+tbody tr td th {
   text-align: center;
   padding: 15px 10px;
   max-width: 15ch;

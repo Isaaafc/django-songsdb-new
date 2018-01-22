@@ -11,12 +11,17 @@
   {% if song.collection is not None %}
   <p>
     Collection: {{ song.collection }}
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Song Number: {{ song.song_num }}
   </p>
   {% endif %}
   <p>
   <pre>
 {{ song.lyrics }}
   </pre>
+  </p>
+  <p>
+    {{ collection.copyright_text }}
   </p>
 </div>
 </body>
