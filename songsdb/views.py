@@ -29,6 +29,7 @@ def add_song(request):
             song_type = form.cleaned_data['song_type']
             type_choice = form.cleaned_data['type_choice']
             document_link2 = form.cleaned_data['document_link2']
+            collection = form.cleaned_data['collection']
             document_link3 = form.cleaned_data['document_link3']
             media_link= form.cleaned_data['media_link']
             language = form.cleaned_data['language']
@@ -59,7 +60,7 @@ def add_song(request):
             new_song, created = Song.objects.get_or_create(song_name=name,document_link=link,year=song_year,
             author=new_author,publisher=new_publisher,song_type=new_type, document_link2 = document_link2,
             document_link3 = document_link3, media_link=media_link, language=language, lyrics=lyrics,
-            song_num=song_num)
+            song_num=song_num, collection=collection)
 
             return HttpResponseRedirect('/view_songs')
         else:
@@ -303,7 +304,8 @@ def view_lyrics(request):
     if request.method == 'GET':
         song_id = request.GET.get('song_id')
         song = Song.objects.get(pk=song_id)
-        return render(request, 'view_lyrics.html', {'song' : song})
+        collection = Collection.object.get(pk=song.collection_id)
+        return render(request, 'view_lyrics.html', {'song' : song, 'collection' : collection})
     return render(request, '404.html')
 
 def log_time(request):
