@@ -111,16 +111,21 @@ h1 {
   word-wrap: break-word;
 }
 
-
 #keywords thead {
   cursor: pointer;
   background: #eee;
 }
-#keywords thead tr th td { 
+#keywords thead tbody tr th td { 
   font-weight: bold;
   padding: 6px 10px;
   padding-left: 20px;
+  text-align: center;
+  padding: 15px 10px;
+  margin-right: 10px;
+  width: 100%;
+  word-wrap: break-word;
 }
+
 #keywords thead tr th span td { 
   padding-right: 10px;
   background-repeat: no-repeat;
@@ -141,20 +146,6 @@ h1 {
 
 #keywords tbody tr { 
   color: #555;
-}
-
-#keywords thead tbody tr td th {
-  text-align: center;
-  padding: 15px 10px;
-  padding-left: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 100%;
-  word-wrap: break-word;
-}
-
-#keywords tbody tr th td.lalign {
-  text-align: center;
 }
 
 /** custom elements **/
