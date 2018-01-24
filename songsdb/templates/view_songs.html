@@ -34,7 +34,7 @@
         <tr>
             <td><a href="{% url 'edit_song' %}?song_id={{item.id}}">Edit</a></td>
             <td>
-                <form action="/delete_song" method="post" onsubmit="return confirm('Do you want to delete the song?')")">
+                <form action="/delete_song" method="post" onsubmit="return confirm('Do you want to delete the song?')">
                     {% csrf_token %}
                     <input type="hidden" value={{item.id}} name="song_id">
                     <input type="submit" value="Delete">
