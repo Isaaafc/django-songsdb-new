@@ -3,7 +3,7 @@ function toggleFieldElement(target, buttonId) {
 		document.getElementById(target).style.display = 'none';
         	document.getElementById(buttonId).innerHtml = '+';
 	} else {
-		document.getElementById(target).style.display = 'block');
+		document.getElementById(target).style.display = 'block';
                 document.getElementById(buttonId).innerHtml = 'Choose from list';
 	}
 }
