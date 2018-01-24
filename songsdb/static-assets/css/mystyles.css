@@ -144,10 +144,9 @@ h1 {
 }
 
 
-#keywords tbody tr td { 
+#keywords tbody tr { 
   color: #555;
   width: 100%;
-  text-align: center;
 }
 
 /** custom elements **/
