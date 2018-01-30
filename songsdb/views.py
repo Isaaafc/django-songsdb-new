@@ -304,7 +304,7 @@ def view_lyrics(request):
     if request.method == 'GET':
         song_id = request.GET.get('song_id')
         song = Song.objects.get(pk=song_id)
-        collection = Collection.object.get(pk=song.collection_id)
+        collection = Collection.objects.get(pk=song.collection_id)
         return render(request, 'view_lyrics.html', {'song' : song, 'collection' : collection})
     return render(request, '404.html')
 
