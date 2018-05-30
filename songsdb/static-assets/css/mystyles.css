@@ -115,7 +115,13 @@ h1 {
   cursor: pointer;
   background: #eee;
 }
-#keywords thead tbody tr th td { 
+
+#keywords td, #keywords th {
+  text-align: center;
+  word-wrap: break-word;
+}
+
+#keywords thead, #keywords th { 
   font-weight: bold;
   padding: 6px 10px;
   padding-left: 20px;
