@@ -119,6 +119,7 @@ h1 {
 #keywords td, #keywords th {
   text-align: center;
   word-wrap: break-word;
+  width: auto;
 }
 
 #keywords thead, #keywords th { 
@@ -128,7 +129,7 @@ h1 {
   text-align: center;
   padding: 15px 10px;
   margin-right: 10px;
-  width: 100%;
+  width: auto;
   word-wrap: break-word;
 }
 
