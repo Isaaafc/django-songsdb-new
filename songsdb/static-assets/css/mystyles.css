@@ -113,7 +113,7 @@ h1 {
 
 #keywords thead {
   cursor: pointer;
-  background: #eee;
+  background: rgb(37, 48, 41);
 }
 
 #keywords td, #keywords th {
