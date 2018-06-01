@@ -96,6 +96,8 @@ h1 {
 .tdlyrics {
   word-wrap: break-word;
   text-align: justify;
+  margin-top: 10;
+  margin-bottom: 10;
 }
 
 /** page structure **/
@@ -118,6 +120,7 @@ h1 {
 #keywords thead {
   cursor: pointer;
   background: rgb(37, 48, 41);
+  color: white;
 }
 
 #keywords td, #keywords th {
