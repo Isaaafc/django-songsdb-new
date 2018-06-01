@@ -67,10 +67,11 @@
                 <a href="{{ item.media_link }}" target="_blank">Media</a>
                 {% endif %}
             </td>
-            <td>
-                {% if item.lyrics %}
+            <td class="tdlyrics">
+                {{ item.lyrics }}
+                <!-- {% if item.lyrics %}
                 <a href="{% url 'view_lyrics' %}?song_id={{item.id}}" target="_blank">Lyrics</a>
-                {% endif %}
+                {% endif %} -->
             </td>
         </tr>
         {% endfor %}
