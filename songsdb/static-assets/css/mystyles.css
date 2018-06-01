@@ -123,6 +123,10 @@ h1 {
   color: white;
 }
 
+#keywords th #keywords th.a {
+  color: white;
+}
+
 #keywords td, #keywords th {
   text-align: center;
   word-wrap: break-word;
