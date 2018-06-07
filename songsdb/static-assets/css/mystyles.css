@@ -123,7 +123,7 @@ h1 {
   color: white;
 }
 
-#keywords th #keywords th>a {
+#keywords th, #keywords th>a {
   color: white;
 }
 
