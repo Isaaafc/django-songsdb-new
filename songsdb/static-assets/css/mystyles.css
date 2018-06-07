@@ -5,6 +5,11 @@ a    { text-decoration: none; }
 p    { text-align: center; }
 sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
 
+.navbar-header {
+  width: 100%;
+  text-align: center;
+}
+
 .button
 {
   text-transform: uppercase;
