@@ -12,7 +12,7 @@ function showElement(target){
 	document.getElementById(target).style.display = 'block';
 }
 
-var $rows = $('#keywords tr');
+var $rows = $('#keywords>tbody>tr');
 $('#search').keyup(function() {
     var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
     
