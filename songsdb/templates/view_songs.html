@@ -69,12 +69,12 @@
                 {% endif %}
             </td>
             <td class="tdlyrics">
-                <p>
+                <!-- <p>
                     {{ item.lyrics }}
-                </p>
-                <!-- {% if item.lyrics %}
-                <a href="{% url 'view_lyrics' %}?song_id={{item.id}}" target="_blank">Lyrics</a>
-                {% endif %} -->
+                </p> -->
+                {% if item.lyrics %}
+                <a href="{% url 'view_lyrics' %}?song_id={{item.id}}" target="_blank">{{ item.lyrics }}</a>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}
