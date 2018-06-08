@@ -98,11 +98,12 @@ h1 {
   text-align: center;
 }
 
-.tdlyrics {
+.tdlyrics, .tdlyrics>a {
   word-wrap: break-word;
   text-align: justify;
-  margin-top: 10;
-  margin-bottom: 10;
+  padding-top: 2%;
+  text-decoration: underline;
+  color: #000;
 }
 
 /** page structure **/
@@ -142,6 +143,7 @@ h1 {
   text-align: center;
   word-wrap: break-word;
   width: auto;
+  vertical-align: center;
 }
 
 #keywords thead, #keywords th { 
