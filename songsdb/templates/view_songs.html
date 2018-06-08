@@ -30,7 +30,7 @@
             <span style="margin-right: 10px;">{{form.search_field}}</span>
             <input type="submit" value="OK">
         </form> -->
-            <input type="text" id="search" placeholder="Search lyrics" />
+            <input type="text" id="search" placeholder="Search in table" onkeyup="searchTable()" />
         </div>
         <tbody>
         {% for item in songs %}
@@ -95,4 +95,15 @@
     </div>
 </div>
 
+<script>
+            var $rows = $('#keywords>tbody>tr');
+            $('#search').keyup(function () {
+                var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+                $rows.show().filter(function () {
+                    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                    return !~text.indexOf(val);
+                }).hide();
+            });
+</script>
 {% endblock %}
