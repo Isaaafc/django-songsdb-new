@@ -12,13 +12,12 @@ function showElement(target){
 	document.getElementById(target).style.display = 'block';
 }
 
-var $rows = $('#keywords>tbody>tr');
-$('#search').keyup(function() {
-    console.log($rows.length);
-    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-    
-    $rows.show().filter(function() {
-        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-        return !~text.indexOf(val);
-    }).hide();
-});
+function searchTable() {
+	var $rows = $('#keywords>tbody>tr');
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+        
+        $rows.show().filter(function() {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+}
