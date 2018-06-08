@@ -107,10 +107,9 @@ h1 {
 
 /** page structure **/
 #search {
-  border: 2px;
-  border-color: #000;
+  border: 2px solid #000;
   background: #FFF;
-  margin-left: 5%;
+  margin-left: 2.5%;
 }
 
 #wrapper {
