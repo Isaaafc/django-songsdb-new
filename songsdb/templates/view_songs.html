@@ -23,13 +23,14 @@
             <th>Lyrics link</th>
         </thead>
         <div style="margin-top: 10px; margin-bottom: 10px">
-        <form action="/view_songs" method="post">
+        <!-- <form action="/view_songs" method="post">
             {% csrf_token %}
             <label for="{{ form.search_bar.label }}" style="display:inline-block;vertical-align:middle">{{ form.search_bar.label_tag }}</label>
            <span style="margin-left: 10px; margin-right: 10px;"> {{form.search_bar}}</span>
             <span style="margin-right: 10px;">{{form.search_field}}</span>
             <input type="submit" value="OK">
-        </form>
+        </form> -->
+            <input type="text" id="search" placeholder="Search lyrics" />
         </div>
         <tbody>
         {% for item in songs %}
