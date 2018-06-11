@@ -75,7 +75,12 @@ def view_songs(request):
         order = request.GET.get('order_by', 'song_name')
         page = request.GET.get('page', 1)
 
-        query_result = Song.objects.all().order_by(order)
+        if (order == 'song_num'):
+            query_result = Song.objects.extra(
+                select={'mInt': "CAST(substring(song_num FROM '^[0-9]+') AS INTEGER)"}
+            ).order_by('mInt')
+        else:
+            query_result = Song.objects.all().order_by(order)
         paginator = Paginator(query_result, 255555)
 
         try:
