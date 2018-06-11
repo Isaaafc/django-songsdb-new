@@ -131,12 +131,8 @@ h1 {
 
 #keywords thead {
   cursor: pointer;
-  background: rgb(37, 48, 41);
-  color: white;
-}
-
-#keywords th, #keywords th>a {
-  color: white;
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 #keywords td, #keywords th {
@@ -161,6 +157,11 @@ h1 {
   padding-right: 10px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
+}
+
+#keywords td>a {
+  color: black;
+  text-decoration: underline;
 }
 
 #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
