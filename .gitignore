@@ -2,4 +2,4 @@ venv
 *.pyc
 .env
 myenv
-db.sqlite
+db.sqlite3
